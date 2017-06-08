@@ -99,4 +99,7 @@ group :staging, :production do
   # SSL
   gem 'platform-api', git: 'https://github.com/jalada/platform-api', branch: 'master'
   gem 'letsencrypt-rails-heroku'
+
+  # CORS
+  gem 'rack-cors'
 end

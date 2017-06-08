@@ -42,5 +42,13 @@ module CalBlueprintOrgApp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     # config.i18n.default_locale = :de
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+        allow do
+            # FIXME: Too permissive CORS rules
+            origins '*'
+            resource '*', :headers => :any, :method => [:get, :post, :options]
+        end
+    end
   end
 end
